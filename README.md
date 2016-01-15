@@ -1,13 +1,13 @@
-# MdArrayjs
+# MdArray
 
 Multi Dimensional arrays for javascript.
 
 ## Getting Started
-Install the module with: `npm install MdArrayjs`
+Install the module with: `npm install MdArray`
 
 ```javascript
-var MdArrayjs = require('MdArrayjs');
-MdArrayjs.awesome(); // "awesome"
+var MdArray = require('MdArrayjs');
+var a = MdArrayjs.([0, 1, 2, 3], 2, 2); // Create 2 X 2 array.
 ```
 
 ## Documentation
