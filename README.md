@@ -25,3 +25,6 @@ _(Nothing yet)_
 ## License
 Copyright (c) 2016 Michael Webster  
 Licensed under the MIT license.
+
+Javascript class for multi-dimensional arrays.
+
