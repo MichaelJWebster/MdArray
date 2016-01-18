@@ -122,6 +122,40 @@ exports.testMul = function(test) {
     test.done();
 };
 
+exports.testViewCreate = function(test) {
+    var testArray = MdArray.arange({start:50, end:100, shape: [10, 5]});
+    var testView = testArray.slice([":", "3:"]);
+    var indices = testView.enumerateIndices();
+    var viewElements = [];
+    testView.foreach(function(x) { viewElements.push(x); });
+    var orgVals = [];
+    for (var i = 0; i < 10; i++) {
+	for (var j = 3; j < 5; j++) {
+	    orgVals.push(testArray.get(i, j));
+	}
+    }
+    //console.log("orgVals are:\n" + orgVals);
+    var testVals = _us.zip(orgVals, viewElements);
+    test.ok(_us.every(testVals, function(val) { return val[0] === val[1]; }),
+	    "testViewCreate: Error in values.");
+    test.done();
+};
+
+exports.testSetSliced = function(test) {
+    var testArray = MdArray.arange({start:50, end:100, shape: [25, 2]});
+    var testView = testArray.slice([":", "1:"]);
+    var indices = testView.enumerateIndices();
+    var viewElements = [];
+    testView.foreach(function(x) { viewElements.push(x); });
+    var orgVals = MdArray.ones({shape: [25, 1]});
+    testView.setSlice(orgVals.data);
+    viewElements = [];
+    testView.foreach(function(x) { viewElements.push(x); });    
+    test.ok(_us.every(viewElements, function(val) { return val === 1; }),
+	    "testViewCreate: Error in values.");
+    test.done();
+};
+
 /*exports['MdArray'] = {
   setUp: function(done) {
     // setup here
