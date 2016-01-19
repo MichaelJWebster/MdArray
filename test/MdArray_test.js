@@ -156,6 +156,29 @@ exports.testSetSliced = function(test) {
     test.done();
 };
 
+exports.testDot1D = function(test) {
+    var tA1 = MdArray.arange({start:1, end:5, shape: [4]});
+    var tA2 = MdArray.arange({start:4, end:0, by: -1, shape: [4]});    
+    var tA1DotA2 = tA1.dot(tA2);
+    var dataVals = _us.zip(tA1.data, tA2.data);
+    var expectedVal = _us.reduce(dataVals, function(memo, val) {
+	return memo + val[0] * val[1];
+    }, 0);
+    test.ok(tA1DotA2 === expectedVal, "testDot1D: Error in values.");
+    test.done();
+};
+
+exports.testDot2D = function(test) {
+    var t2D1 = MdArray.arange({start:1, end:5, shape: [2, 2]});
+    var t2D2 = MdArray.arange({start:4, end:0, by: -1, shape: [2, 2]});
+    var t2DDot = t2D1.dot(t2D2);
+    var passed = (t2DDot.get(0,0) === 8) && (t2DDot.get(0, 1) == 5) &&
+	    (t2DDot.get(1,0) === 20) && (t2DDot.get(1,1) == 13);
+    test.ok(passed, 
+	    "testDot2D: Error in values.");
+    test.done();
+};
+
 /*exports['MdArray'] = {
   setUp: function(done) {
     // setup here
