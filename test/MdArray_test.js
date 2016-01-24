@@ -179,6 +179,8 @@ exports.testDot2D = function(test) {
     test.done();
 };
 
+// More tests.
+// Fixed bug in transpose - add more big transposes
 /*exports['MdArray'] = {
   setUp: function(done) {
     // setup here
