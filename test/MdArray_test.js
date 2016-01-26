@@ -179,6 +179,64 @@ exports.testDot2D = function(test) {
     test.done();
 };
 
+exports.groupOps = {
+    objs: {},
+    
+    setUp: function(callback) {
+	exports.groupOps.objs.SevenBySeven = MdArray.arange({start: 1, end: 50, shape: [7, 7]});
+	exports.groupOps.objs.OneBySevenOnes = MdArray.ones({start: 1, end: 8, shape: [1, 7]});
+	exports.groupOps.objs.OneBySevenTwos = exports.groupOps.objs.OneBySevenOnes.mul(2);
+	exports.groupOps.objs.SevenByOneOnes = MdArray.ones({start: 1, end: 8, shape: [7, 1]});
+	exports.groupOps.objs.SevenByOneTwos = exports.groupOps.objs.SevenByOneOnes.mul(2);
+	if (callback) {
+	    callback();
+	}
+    },
+
+    testMul: function(test) {
+	var arr1 = exports.groupOps.objs.SevenBySeven.mul(2);
+	var arr2 = exports.groupOps.objs.SevenBySeven.mul(exports.groupOps.objs.OneBySevenTwos);
+	var resultData = _us.zip(arr1.data, arr2.data);
+	var passed = _us.every(resultData, function(d) {
+	    return d[0] === d[1];
+	});
+	test.ok(passed, "testMul 1: Error in values.");
+	arr1 = exports.groupOps.objs.SevenBySeven.mul(2);
+	arr2 = exports.groupOps.objs.SevenBySeven.mul(exports.groupOps.objs.SevenByOneTwos);
+	resultData = _us.zip(arr1.data, arr2.data);
+	passed = _us.every(resultData, function(d) {
+	    return d[0] === d[1];
+	});
+	test.ok(passed, "testMul 2: Error in values.");
+	test.done();
+    },
+
+    testSumAxis: function(test) {
+	var arr1 = exports.groupOps.objs.SevenBySeven.mul(10);
+	var tens = exports.groupOps.objs.OneBySevenTwos.mul(5);
+	var arr2 = exports.groupOps.objs.SevenBySeven.mul(tens);
+	var sumCol1 = arr1.sum(1);
+	var sumCol2 = arr2.sum(1);
+	var passed = (sumCol1.dims[0] == 1) && (sumCol2.dims[0] == 1);
+	passed = passed && (sumCol1.dims[1] == arr1.dims[1]) && (sumCol2.dims[1] == sumCol1.dims[1]);
+	var resultData = _us.zip(sumCol1.data, sumCol2.data);
+	passed = passed && _us.every(resultData, function(d) {
+	    return d[0] === d[1];
+	});
+	test.ok(passed, "testSumAxis 1: Error in Summing over columns.");
+	var sumRow1 = arr1.sum(0);
+	var sumRow2 = arr2.sum(0);
+	passed = (sumCol1.dims[0] == 1) && (sumCol2.dims[0] == 1);
+	passed = passed && (sumCol1.dims[1] == arr1.dims[1]) && (sumCol2.dims[1] == sumCol1.dims[1]);
+	resultData = _us.zip(sumRow1.data, sumRow2.data);
+	passed = passed && _us.every(resultData, function(d) {
+	    return d[0] === d[1];
+	});
+	test.ok(passed, "testSumAxis 2: Error in summing over rows.");
+	test.done();
+    }
+};
+
 // More tests.
 // Fixed bug in transpose - add more big transposes
 /*exports['MdArray'] = {
