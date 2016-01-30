@@ -3,14 +3,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DocStrap Global</title>
+	<title>MdArray Global</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
 
-	<link type="text/css" rel="stylesheet" href="styles/site.superhero.css">
+	<link type="text/css" rel="stylesheet" href="styles/site.readable.css">
 
 </head>
 
@@ -19,7 +19,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<a class="navbar-brand" href="index.html">MdArray</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -39,7 +39,9 @@
 			<li class="dropdown">
 				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="global.html#assert">assert</a></li><li><a href="global.html#enumerateDims">enumerateDims</a></li><li><a href="global.html#enumerateSlices">enumerateSlices</a></li><li><a href="global.html#findIndex">findIndex</a></li><li><a href="global.html#flatten">flatten</a></li><li><a href="global.html#getStrides">getStrides</a></li><li><a href="global.html#processSlices">processSlices</a></li><li><a href="global.html#toString">toString</a></li>
+					<li><a href="global.html#add">add</a></li><li><a href="global.html#applyOp">applyOp</a></li><li><a href="global.html#assign">assign</a></li><li><a href="global.html#div">div</a></li><li><a href="global.html#enumerateIndicesEnumeratetheindicesofthisArrayViewobject.">enumerateIndices
+Enumerate the indices of this ArrayView object.</a></li><li><a href="global.html#findIndex">findIndex</a></li><li><a href="global.html#flatten">flatten</a></li><li><a href="global.html#foreach">foreach</a></li><li><a href="global.html#mulMultiplythisbythatandreturnanewMdArraycontainingtheresult.">mul
+Multiply this by that and return a new MdArray containing the result.</a></li><li><a href="global.html#setSlice">setSlice</a></li><li><a href="global.html#sub">sub</a></li><li><a href="global.html#toString">toString</a></li>
 				</ul>
 			</li>
 			
@@ -150,7 +152,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="assert"><span class="type-signature"></span>assert()</h4>
+    <h4 class="name" id="add"><span class="type-signature"></span>add(that)</h4>
     
     
 </dt>
@@ -158,95 +160,7 @@
 
     
     <div class="description">
-        <p>Raise an error if possible, when there is a violation of the expectations<br>of the ml-ndarray module.</p>
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-717">line 717</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="enumerateDims"><span class="type-signature"></span>enumerateDims(dims)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        <p>Return a list of all coordinates for the given MdArray.</p>
+        <p>Add that to this, and return a new array containing the result.</p>
     </div>
     
 
@@ -281,7 +195,7 @@
 
         <tr>
             
-                <td class="name"><code>dims</code></td>
+                <td class="name"><code>that</code></td>
             
 
             <td class="type">
@@ -292,7 +206,7 @@
 
             
 
-            <td class="description last"><p>An array of dimensions for an MdArray.</p></td>
+            <td class="description last"><p>The array to be added to this one.</p></td>
         </tr>
 
     
@@ -337,7 +251,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-654">line 654</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1115">line 1115</a>
 			</li>
 		</ul>
 	</dd>
@@ -366,7 +280,7 @@
     
             
 <div class="param-desc">
-    <p>An ordered list containing a coordinate for every element of the<br>         MdArray.</p>
+    <p>A new MdArray containing the values of that + this.</p>
 </div>
 
 
@@ -381,7 +295,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="enumerateSlices"><span class="type-signature"></span>enumerateSlices(dims)</h4>
+    <h4 class="name" id="applyOp"><span class="type-signature"></span>applyOp(that, opFn, dim)</h4>
     
     
 </dt>
@@ -389,7 +303,7 @@
 
     
     <div class="description">
-        <p>Return a list of all coordinates for the given MdArray.</p>
+        <p>Apply opFn to the values of this and that. If a dim is requested, then<br>apply accross that dim.</p>
     </div>
     
 
@@ -424,7 +338,7 @@
 
         <tr>
             
-                <td class="name"><code>dims</code></td>
+                <td class="name"><code>that</code></td>
             
 
             <td class="type">
@@ -435,7 +349,43 @@
 
             
 
-            <td class="description last"><p>An array of dimensions for an MdArray.</p></td>
+            <td class="description last"><p>Another array view object - or possibly an MdArray object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>opFn</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A function to apply to combinations of elements from this<br>              and that.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dim</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If present, indicates a dimension along with to apply the<br>              opFn.</p></td>
         </tr>
 
     
@@ -480,7 +430,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-686">line 686</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1056">line 1056</a>
 			</li>
 		</ul>
 	</dd>
@@ -509,7 +459,378 @@
     
             
 <div class="param-desc">
-    <p>An ordered list containing a coordinate for every element of the<br>         MdArray.</p>
+    <p>A new MdArray containing the results of applying opFn to<br>        this and that as requested.</p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="assign"><span class="type-signature"></span>assign(that)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Assign this view's values to be the same as that's values.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>that</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>A compatible MdArray or ArrayView.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1034">line 1034</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="div"><span class="type-signature"></span>div(that)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Divide this by that and return a new MdArray containing the result.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>that</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to divide this by.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1155">line 1155</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>A new MdArray containing the values of this / that.</p>
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="enumerateIndicesEnumeratetheindicesofthisArrayViewobject."><span class="type-signature"></span>enumerateIndices
+Enumerate the indices of this ArrayView object.()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1012">line 1012</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>An array containing the indices for each element in this array<br>        view.</p>
 </div>
 
 
@@ -623,7 +944,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-526">line 526</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-924">line 924</a>
 			</li>
 		</ul>
 	</dd>
@@ -711,7 +1032,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-583">line 583</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-985">line 985</a>
 			</li>
 		</ul>
 	</dd>
@@ -744,7 +1065,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="getStrides"><span class="type-signature"></span>getStrides(dims)</h4>
+    <h4 class="name" id="foreach"><span class="type-signature"></span>foreach(f)</h4>
     
     
 </dt>
@@ -752,7 +1073,7 @@
 
     
     <div class="description">
-        <p>Given the dimensions of an MdArray, return an array of strides for the<br>array.</p>
+        <p>Apply function f to each element in this ArrayView sequentially.</p>
     </div>
     
 
@@ -787,7 +1108,7 @@
 
         <tr>
             
-                <td class="name"><code>dims</code></td>
+                <td class="name"><code>f</code></td>
             
 
             <td class="type">
@@ -798,7 +1119,7 @@
 
             
 
-            <td class="description last"><p>An array of dimensions for the MdArray.</p></td>
+            <td class="description last"><p>A function to apply to each element in this.</p></td>
         </tr>
 
     
@@ -843,7 +1164,136 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-482">line 482</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-997">line 997</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="mulMultiplythisbythatandreturnanewMdArraycontainingtheresult."><span class="type-signature"></span>mul
+Multiply this by that and return a new MdArray containing the result.(that)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>that</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to be multiplied with this one.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1142">line 1142</a>
 			</li>
 		</ul>
 	</dd>
@@ -872,7 +1322,7 @@
     
             
 <div class="param-desc">
-    <p>An array containing the strides for the MdArray.</p>
+    <p>A new MdArray containing the values of this * that.</p>
 </div>
 
 
@@ -887,7 +1337,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="processSlices"><span class="type-signature"></span>processSlices(dims, sliceInfo)</h4>
+    <h4 class="name" id="setSlice"><span class="type-signature"></span>setSlice(vals)</h4>
     
     
 </dt>
@@ -895,7 +1345,7 @@
 
     
     <div class="description">
-        <p>Return an array of objects with start and end index values calculated<br>from the values in dims and sliceInfo.</p>
+        <p>Set the values in this slice from vals.</p>
     </div>
     
 
@@ -930,7 +1380,7 @@
 
         <tr>
             
-                <td class="name"><code>dims</code></td>
+                <td class="name"><code>vals</code></td>
             
 
             <td class="type">
@@ -941,25 +1391,7 @@
 
             
 
-            <td class="description last"><p>An array containing the dimensions of the original MdArray.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>sliceInfo</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An array of slice strings.</p></td>
+            <td class="description last"><p>An array of values.</p></td>
         </tr>
 
     
@@ -1004,7 +1436,139 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-617">line 617</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1021">line 1021</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="sub"><span class="type-signature"></span>sub(that)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Subtract that from this, and return a new MdArray containing the result.</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>that</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The array to be subtracted from this one.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-1128">line 1128</a>
 			</li>
 		</ul>
 	</dd>
@@ -1033,7 +1597,7 @@
     
             
 <div class="param-desc">
-    <p>An array of objects, each of which has a start and end indicating<br>         the start and end of a slice for a particular dimension.</p>
+    <p>A new MdArray containing the values of this - that.</p>
 </div>
 
 
@@ -1103,7 +1667,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html">/Users/michaelw/Google Drive/js/MdArray/lib/MdArray.js</a>,
-				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-548">line 548</a>
+				 <a href="-_Users_michaelw_Google%20Drive_js_MdArray_lib_MdArray.js.html#sunlight-1-line-949">line 949</a>
 			</li>
 		</ul>
 	</dd>
@@ -1189,13 +1753,13 @@
 
 
 	<span class="copyright">
-	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	MdArray Copyright © 2016 Michael Webster.
 	</span>
 
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on Tue Jan 19th 2016
+		on Sat Jan 30th 2016
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

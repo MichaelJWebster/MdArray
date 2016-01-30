@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     },
       jsdoc : {
 	  dist : {
-	      src : ['lib/MdArray.js'],
+	      src : ['lib/MdArray.js', 'README.md'],
 	      options: {
 		  destination : 'doc',
 		  template : 'node_modules/ink-docstrap/template',
