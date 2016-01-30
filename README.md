@@ -20,7 +20,7 @@ var a = MdArrayjs.([0, 1, 2, 3], 2, 2); // Create 2 X 2 array.
 
 ## Documentation
 
-See: [MdArray jsdoc](https://github.com/MichaelJWebster/MdArray/blob/master/doc/index.html)
+See: [MdArray jsdoc](https://cdn.rawgit.com/MichaelJWebster/MdArray/master/doc/index.html)
 
 ## Examples
 
