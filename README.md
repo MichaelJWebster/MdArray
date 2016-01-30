@@ -26,6 +26,14 @@ See: [MdArray jsdoc](https://cdn.rawgit.com/MichaelJWebster/MdArray/master/doc/i
 
 Coming soon.
 
+## Performance
+
+The performance is probably pretty poor at present. For example, iterating 1000 times
+with a few 500 X 3 array multiplications takes a few seconds.
+
+The library has not been written with any mind to performance just yet. There are
+a number of fixes I have in mind to improve performance.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
